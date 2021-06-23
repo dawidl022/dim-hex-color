@@ -4,8 +4,8 @@ The python script decreases the value of each digit in hex code by 1, unless alr
 `dim-color` can be placed in folder with PATH scripts to be executed quickly from command line with command:  
  `dim-color <hex-value>`
 
-`dim-color.py` can be used normally as an argument for the python3 interpreter:  
-`python3 <path-to>/dim-color.py <hex-value>`
+`dim-color` can be also used normally as an argument for the python3 interpreter:  
+`python3 <path-to>/dim-color <hex-value>`
 
 If you have any suggestions please let me know 😁
 
@@ -23,6 +23,6 @@ $ dim-color abc
 9ab
 ```
 ```
-$ python3 dim-color.py \#49f
+$ python3 dim-color \#49f
 #38e
 ```
