@@ -2,10 +2,10 @@
 
 from sys import argv
 
-if len(argv) != 2 or len(argv[1]) not in (3, 4, 6, 7):
-    print("usage: dim-color <hex-color>")
-else:
-    color = argv[1]
+INVALID_VALUE_MSG = "dim-color: not a valid hex-color value"
+INVALID_ARGS_MSG = "usage: dim-color <hex-color>"
+
+def dim_color(color):
     dimmed_color = []
     for digit in color:
         if digit.lower() not in ("0", "#", "a"):
@@ -13,4 +13,19 @@ else:
         elif digit.lower() == "a":
             digit = "9"
         dimmed_color.append(digit)
-    print("".join(dimmed_color))
+    return "".join(dimmed_color)
+
+def check_argv(cli_args):
+    if len(cli_args) != 2:
+        return False, INVALID_ARGS_MSG
+    elif len(cli_args[1]) not in (3, 4, 6, 7):
+        return False, INVALID_VALUE_MSG
+    else:
+        return True, cli_args[1]
+
+if __name__ == "__main__":
+    input_color = check_argv(argv)
+    if input_color[0]:
+        print(dim_color(input_color[1]))
+    else:
+        print(input_color[1])
